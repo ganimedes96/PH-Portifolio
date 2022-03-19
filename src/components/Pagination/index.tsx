@@ -1,8 +1,8 @@
-import { background, Box, Button } from "@chakra-ui/react"
+import { Box, Button } from "@chakra-ui/react"
 
 type PaginationProps ={
     pages: number;
-    setCurrentPage?:number;
+    setCurrentPage: (page:number) => void;
     currentPage:number;
 }
 

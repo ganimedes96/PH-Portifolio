@@ -26,7 +26,7 @@ interface PerfumeProps{
 export default function PagePerfume({perfumes}:PerfumeProps) {
 
 
-    const [itensPerpage,setItensPerpage] =useState(9) 
+    const [itensPerpage,setItensPerpage] =useState(6) 
     const [currentPage,setCurrentPage]=useState(0)  
 
     const pages = Math.ceil(perfumes.length / itensPerpage) 
@@ -35,7 +35,7 @@ export default function PagePerfume({perfumes}:PerfumeProps) {
     const endIndex = startIndex + itensPerpage
     const currentItens = perfumes.slice(startIndex, endIndex)
 
-    console.log(pages)
+ 
 
     return(
         <>
