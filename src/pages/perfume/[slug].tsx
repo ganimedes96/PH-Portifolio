@@ -19,19 +19,19 @@ import "swiper/css/free-mode";
 import "swiper/css/navigation";
 import "swiper/css/thumbs";
 
-type Perfume = {
-  slug: string;
-  image: string;
-  image1: string;
-  image2: string;
-  image3: string;
-  description: string;
-  price: string;
-  split: number;
+type PerfumeProps = {
+  perfumes:{
+    slug: string;
+    image: string;
+    image1: string;
+    image2: string;
+    image3: string;
+    description: string;
+    price: string;
+    split: number;
+  }
 };
-interface PerfumeProps {
-  perfumes: Perfume[];
-}
+
 
 export default function perfume({ perfumes }: PerfumeProps) {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
