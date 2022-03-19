@@ -4,11 +4,17 @@ type PaginationProps ={
     pages: number;
     setCurrentPage: (page:number) => void;
     currentPage:number;
+
 }
 
 
 
 export const Pagination = ({pages,setCurrentPage,currentPage}:PaginationProps) =>{
+   
+    
+
+   
+   
     return(
         <Box 
             textAlign='center'
@@ -22,7 +28,7 @@ export const Pagination = ({pages,setCurrentPage,currentPage}:PaginationProps) =
                         bg='gray.400'  
                         color='white.100'   
                         value={index}
-                        onClick={e=> setCurrentPage(Number(e.target.value))}
+                        onClick={event=> setCurrentPage(Number(event.currentTarget.value))as any}
                         mx='.5rem'
                         transition='.8s'
                         _hover={{
