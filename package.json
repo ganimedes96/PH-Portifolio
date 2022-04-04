@@ -12,6 +12,7 @@
     "@chakra-ui/react": "^1.8.6",
     "@emotion/react": "^11.8.1",
     "@emotion/styled": "^11.8.1",
+    "@lottiefiles/react-lottie-player": "^3.4.4",
     "@prismicio/client": "5.1.1",
     "@types/react-virtualized": "^9.21.20",
     "framer-motion": "^6.2.8",

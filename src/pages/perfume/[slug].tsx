@@ -3,23 +3,21 @@ import { RichText } from "prismic-dom";
 import { getPrismicClient } from "../../services/prismic";
 import Head from "next/head";
 import Prismic from "@prismicio/client";
-import { useState } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
 
-import styles from "./perfume.module.scss";
+
+import styles from "../../styles/style.module.scss";
 
 import { Box, Button, Flex, Text } from "@chakra-ui/react";
 
 // import required modules
-import { FreeMode, Navigation, Thumbs } from "swiper";
+import { Navigation, Pagination, Mousewheel, Keyboard } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/react";
 
-// Import Swiper styles
 import "swiper/css";
-import "swiper/css/free-mode";
 import "swiper/css/navigation";
-import "swiper/css/thumbs";
+import "swiper/css/pagination";
 
-type PerfumeProps = {
+type PerfumeProps= {
   perfumes:{
     slug: string;
     image: string;
@@ -29,12 +27,13 @@ type PerfumeProps = {
     description: string;
     price: string;
     split: number;
+    
   }
 };
 
 
 export default function perfume({ perfumes }: PerfumeProps) {
-  const [thumbsSwiper, setThumbsSwiper] = useState(null);
+  
 
   return (
     <>
@@ -42,72 +41,55 @@ export default function perfume({ perfumes }: PerfumeProps) {
         <title>Perfumes</title>
       </Head>
       <Flex
-       maxWidth={1400} 
-       mx='auto'
-       mt='10rem'
-      
-       d={{base:'block', md:'flex'}}
+        maxWidth={1400}
+        mx="auto"
+        mt={{base:"5rem", md:'10rem'}}
+        d={{ base: "block", md: "flex" }}
+      >
+         
+               
+          <Box 
+            position='relative' 
+            maxWidth={{base:'100%', md:'50%'}}
+            alignItems='center'
+            justifyContent='center'
+            mb={{base:'1rem', md:'0'}}
+            
 
-         >
-        <div className={styles.images}>
-          <Swiper
-            spaceBetween={10}
-            navigation={true}
-            thumbs={{ swiper: thumbsSwiper }}
-            modules={[FreeMode, Navigation, Thumbs]}
-            className={styles.mySwiper2}
           >
-            <SwiperSlide className={styles.swiperSlider}>
-              <img src={perfumes.image} />
-            </SwiperSlide>
-            <SwiperSlide className={styles.swiperSlider}>
-              <img src={perfumes.image1} />
-            </SwiperSlide>
-            <SwiperSlide className={styles.swiperSlider}>
-              <img src={perfumes.image2} />
-            </SwiperSlide>
-            <SwiperSlide className={styles.swiperSlider}>
-              <img src={perfumes.image3} />
-            </SwiperSlide>
-          </Swiper>
+         
           <Swiper
-            onSwiper={setThumbsSwiper}
-            spaceBetween={1}
-            slidesPerView={4}
-            freeMode={true}
-            watchSlidesProgress={true}
-            modules={[FreeMode, Navigation, Thumbs]}
-            className={styles.mySwiper}
-          >
-            <SwiperSlide className={styles.swiperBack}>
-              <img src={perfumes.image} />
-            </SwiperSlide>
-            <SwiperSlide className={styles.swiperBack}>
-              <img src={perfumes.image1} />
-            </SwiperSlide>
-            <SwiperSlide className={styles.swiperBack}>
-              <img src={perfumes.image2} />
-            </SwiperSlide>
-            <SwiperSlide className={styles.swiperBack}>
-              <img src={perfumes.image3} />
-            </SwiperSlide>
-          </Swiper>
-        </div>
-        <Box
-          mx={{base:'1.8rem'}}
-        >
+        cssMode={true}
+        navigation={true}
+        pagination={true}
+        mousewheel={true}
+        keyboard={true}
+        modules={[Navigation, Pagination, Mousewheel, Keyboard]}
+        className={styles.mySwiper}
+      >
+        <SwiperSlide className={styles.swiperSlide}><img src={perfumes.image} alt="" /></SwiperSlide>
+        <SwiperSlide className={styles.swiperSlide}><img src={perfumes.image1} alt="" /></SwiperSlide>
+        <SwiperSlide className={styles.swiperSlide}><img src={perfumes.image2} alt="" /></SwiperSlide>
+        <SwiperSlide className={styles.swiperSlide}><img src={perfumes.image3} alt="" /></SwiperSlide>
 
+       
+        
+      </Swiper>
+
+
+      </Box>
+
+        
+        <Box 
+          mx={{ base: "1.5rem" }}>
           <Box
-            w='100%'
-            d='flex'
-            flexDirection='column'
-            
-            p='4rem 2rem'
-            borderRadius='8px'
-            mr={{base:'1.8rem'}}
-            
-            
-            boxShadow='2px -4px 20px 5px rgba(0,0,0,0.1),-17px 10px 10px -40px rgba(0,0,0,0.1);'
+            w="100%"
+            d="flex"
+            flexDirection="column"
+            p="4rem 2rem"
+            borderRadius="8px"
+            mr={{ base: "1.8rem" }}
+            boxShadow="2px -4px 20px 5px rgba(0,0,0,0.1),-17px 10px 10px -40px rgba(0,0,0,0.1);"
           >
             <Text
               as="p"
@@ -118,17 +100,17 @@ export default function perfume({ perfumes }: PerfumeProps) {
             >
               {perfumes.description}
             </Text>
-            <Text as="h2" fontSize="15px" mb="1rem">
-              {perfumes.price}
+            <Text as="h2" fontSize="18px" mb="1rem" fontWeight="500">
+              R$ {perfumes.price}
             </Text>
-            <Text as="span" mb="3rem">
-              <Text fontSize="25px" as="strong">
+            <Text as="span" mb="3rem" >
+              <Text fontSize="25px" as="strong" mx='.3rem'>
                 3x
               </Text>
               de
-              <Text fontSize="25px" as="strong">
+              <Text fontSize="25px" as="strong" mx='.3rem'>
                 R${perfumes.split}
-              </Text>{" "}
+              </Text>
               sem juros
             </Text>
 
@@ -171,14 +153,11 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async (context) => {
   const prismic = getPrismicClient();
 
-  const { slug } = context.params;
+  const { slug }: any = context.params;
 
   const response = await prismic.getByUID<any>("perfume", String(slug), {});
 
-  
-  const split = RichText.asText(response.data.price)
-
-
+  const split = RichText.asText(response.data.price);
 
   const perfumes = {
     slug: response.uid,
@@ -188,10 +167,8 @@ export const getStaticProps: GetStaticProps = async (context) => {
     image3: response.data.image3.url,
     description: RichText.asText(response.data.description),
     price: RichText.asText(response.data.price),
-    split: Math.round( parseInt(split)/3)
+    split: Math.round(parseInt(split) / 3),
   };
-
-
 
   return {
     props: { perfumes },

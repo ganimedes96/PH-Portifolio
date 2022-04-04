@@ -81,7 +81,7 @@ export default function PagePerfume({perfumes}:PerfumeProps) {
         <SimpleGrid columns={[1,2,3]} mx='2rem' >
 
         {currentItens.map(perfume =>(
-            <Link key={perfume.slug} href={`/perfume/${perfume.slug}`}>
+            <Link  key={perfume.slug} href={`/perfume/${perfume.slug}`}>
                 <Box 
                    
                     p='1rem .8rem'

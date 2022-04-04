@@ -1,9 +1,11 @@
-import { ListItem, UnorderedList } from "@chakra-ui/react"
+import { ListItem, UnorderedList,Text } from "@chakra-ui/react"
 import Link from "next/link"
-
+import { useRouter } from "next/router"
 
 export const ListHeader = () =>{
-    return(
+   const router = useRouter() 
+   
+   return(
         <UnorderedList
         d={{base:'block', md:'flex'}}
         gap='4rem'
@@ -33,9 +35,13 @@ export const ListHeader = () =>{
             pb='1rem'
             borderColor='gray.500'
             >
-             <Link href='/wallet'>
-                <a>Carteira</a>
-             </Link>
+             <Text as='a'
+               
+              href='/wallet'
+               cursor='pointer'
+             >
+                  Carteira
+             </Text>
          </ListItem>
          <ListItem 
              
@@ -44,9 +50,13 @@ export const ListHeader = () =>{
             borderColor='gray.500'
 
              >
-             <Link href='/perfume'>
-                <a href="#">Perfume</a>
-             </Link>
+            <Text as='a'
+               
+               href='/watch'
+                cursor='pointer'
+              >
+                   Relogio
+              </Text>
          </ListItem>
          <ListItem 
            
@@ -55,9 +65,13 @@ export const ListHeader = () =>{
             borderColor='gray.500'
 
             >
-             <Link href='/watch'>
-                <a href="#">Relogio</a>
-             </Link>
+             <Text as='a'
+               
+               href='/perfume'
+                cursor='pointer'
+              >
+                   Perfume
+              </Text>
          </ListItem>
      </UnorderedList>   
     )

@@ -1,19 +1,16 @@
-import type { NextPage } from 'next'
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation } from "swiper";
 import {Image, Slider} from '@chakra-ui/react'
-
+import styled from './style.slide.module.scss'
+import { GetStaticProps } from 'next'
+import Link from 'next/link'
+import Prismic from '@prismicio/client'
+import { getPrismicClient } from '../services/prismic'
 
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import styled from './style.slide.module.scss'
 
-import { GetStaticProps } from 'next'
-import { RichText} from 'prismic-dom'
-import Link from 'next/link'
-import Prismic from '@prismicio/client'
-import { getPrismicClient } from '../services/prismic'
 
 type Slider = {
     
