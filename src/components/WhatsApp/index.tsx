@@ -1,19 +1,13 @@
-import { Box,Text } from '@chakra-ui/react'
-import whats from '../../../animation/whats.json'
-import Lottie from 'react-lottie';
-import Link from 'next/link';
+import { Box,Icon,Text } from '@chakra-ui/react'
+import { RiWhatsappFill } from 'react-icons/ri'
+
+
+
 
 
 export const WhatsApp = () =>{
     
-    const whatsapp ={
-        loop: true,
-        autoplay: true,
-        animationData: whats,
-        renderSettings: {
-            preserveAspectRatio: 'xMidYMid slice'
-        } 
-    }
+    
     
     return(
 
@@ -26,11 +20,12 @@ export const WhatsApp = () =>{
 
           >
               <Text as='a' href='http://web.whatsapp.com/send?phone=5586999520517' target='_blank'>
-                <Lottie
-                    options={whatsapp}
-                    height='50px'
-                    width='50px'
-                />  
+              <Icon
+                            as={RiWhatsappFill}
+                            boxSize="60px"
+                            color="green.500"
+                          
+                          />
               </Text>
           </Box>  
     )
