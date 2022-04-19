@@ -33,7 +33,7 @@ export default function Home ({sliders}:SliderProps)  {
        <div className={styled.container}>
        {sliders.map(slider =>(
                  <Swiper
-                 key={slider.slug}
+             key={slider.slug}
              className={styled.mySwiper}   
              slidesPerView={1}
              spaceBetween={30}
