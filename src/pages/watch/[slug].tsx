@@ -145,11 +145,13 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async (context) => {
   const prismic = getPrismicClient();
 
-  const { slug }: any = context.params;
+  const { slug }:any = context.params;
 
-  const response = await prismic.getByUID<any>("cloc", String(slug), {});
+  const response = await prismic.getByUID("cloc", String(slug), {});
 
   const split = RichText.asText(response.data.price);
+  
+  console.log(response)
 
   const clocks = {
     slug: response.uid,
@@ -162,7 +164,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
     split: Math.round(parseInt(split) / 3),
   };
 
-  console.log(split);
+ 
 
   return {
     props: { clocks },
