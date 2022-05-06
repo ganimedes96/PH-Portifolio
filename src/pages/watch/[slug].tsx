@@ -31,6 +31,8 @@ type ClocksProps = {
 };
 
 export default function wallet({ clocks }: ClocksProps) {
+  
+  
   return (
     <>
       <Head>
@@ -147,7 +149,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
   const { slug }:any = context.params;
 
-  const response = await prismic.getByUID("cloc", String(slug), {});
+  const response = await prismic.getByUID<any>("cloc", String(slug), {});
 
   const split = RichText.asText(response.data.price);
   

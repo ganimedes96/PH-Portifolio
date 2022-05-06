@@ -140,5 +140,6 @@ export const getStaticProps: GetStaticProps = async () => {
     props: {
       clocks,
     },
+    revalidate: 86400
   };
 };
