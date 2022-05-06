@@ -11,6 +11,10 @@
         "url": "https://reactjs.org"
       },
       {
+        "name":"Nextjs",
+        "url": "https://nextjs.org"
+      },
+      {
           "name":"Chakra ui",
           "url":"https://chakra-ui.com"
       },
@@ -39,7 +43,7 @@
       
     ],
     "videos":[
-        "https://raw.githubusercontent.com/ganimedes96/PH-Store/main/.github/store.jpg"
+        "https://raw.githubusercontent.com/ganimedes96/PH-Store/main/.github/store.mp4"
     ],
     "images": [
      "https://raw.githubusercontent.com/ganimedes96/PH-Store/main/.github/image.jpg",
